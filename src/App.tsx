@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Button, Loader, Paper, Text, createStyles } from '@mantine/core';
 import NewsHandler from './components/newsHandler/NewsHandler';
+import Editor from './components/textEditor/Editor';
 // refer mantine docs for more components
 const useStyles = createStyles({
   root: {
@@ -28,6 +29,7 @@ const useStyles = createStyles({
 function App() {
   return (
     <div className="App">
+      <Editor/>
       <NewsHandler />
     </div>
   );
