@@ -1,38 +1,22 @@
-import React from 'react';
-import './App.css';
-import { Button, Loader, Paper, Text, createStyles } from '@mantine/core';
-import NewsHandler from './components/newsHandler/NewsHandler';
-import Editor from './components/textEditor/Editor';
-// refer mantine docs for more components
-const useStyles = createStyles({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-  },
-  textBox: {},
-  newsComponent: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    height: '100%',
-    padding: '1rem',
-    backgroundColor: 'white',
-    borderRadius: '1rem',
-  },
-});
-
+import "./App.css";
+import {  Grid } from "@mantine/core";
+import NewsHandler from "./components/newsHandler/NewsHandler";
+import Editor from "./components/textEditor/Editor";
 
 function App() {
-  return (
-    <div className="App">
-      <Editor/>
-      <NewsHandler />
-    </div>
-  );
+    return (
+        <div className="App">
+            <div>Docustack Assignment</div>
+            <Grid>
+                <Grid.Col span={6}>
+                    <Editor />
+                </Grid.Col>
+                <Grid.Col span={6}>
+                    <NewsHandler />
+                </Grid.Col>
+            </Grid>
+        </div>
+    );
 }
 
 export default App;
