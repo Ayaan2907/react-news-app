@@ -1,4 +1,3 @@
-import { $getRoot, $getSelection } from "lexical";
 import "./styles.css";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
@@ -14,8 +13,6 @@ import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 import InsertTextPlugin from "./plugins/InsertTextPlugin";
-// import TreeViewPlugin from "./plugins/TreeViewPlugin";
-// import ListMaxIndentLevelPlugin from "./plugins/ListMaxIndentLevelPlugin";
 
 import editorConfig from "./EditorConfig";
 import { Text } from "@mantine/core";
@@ -27,7 +24,7 @@ const Placeholder = () => {
 
 export default function Editor() {
     const [value, setValue] = useState("");
-    const [editor, setEditor] = useState(null);
+    // const [editor, setEditor] = useState(null);
 
     // TODO: add a way to dispatch the addText command to insert the news text into editor
     return (
@@ -47,10 +44,8 @@ export default function Editor() {
                     <ListPlugin />
                     <LinkPlugin />
                     <AutoLinkPlugin />
-                    {/* <InsertTextPlugin text={"hello"} /> */}
+                    <InsertTextPlugin text={"dkjfndkjsfsdn"} />
                     <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-                    {/* <TreeViewPlugin /> */}
-                    {/* <ListMaxIndentLevelPlugin maxDepth={7} /> */}
                 </div>
             </div>
         </LexicalComposer>
