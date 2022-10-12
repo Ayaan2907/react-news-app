@@ -1,6 +1,9 @@
 import { Button, Title, Text, Paper } from "@mantine/core";
 import { useState } from "react";
 import { createStyles } from "@mantine/core";
+import { useSelector, useDispatch } from "react-redux";
+import { updateNews } from "../../redux/newsSlice";
+
 const useStyles = createStyles((theme) => ({
     card: {
         padding: "1rem",
@@ -26,6 +29,14 @@ const useStyles = createStyles((theme) => ({
 
 export default function NewsCard({ news }) {
     const { classes } = useStyles();
+    const dispatch = useDispatch();
+    // const newsState = useSelector((state: any) => state.news);
+    // console.log(newsState);
+    // const handleNewsUpdate = (news) => {
+    //     dispatch(updateNews(news));
+    //     console.log(newsState);
+
+    // };
     const [toggle, setToggle] = useState(false);
     return (
         <>
@@ -45,8 +56,7 @@ export default function NewsCard({ news }) {
                     </Button>
                     <Button
                         onClick={() => {
-                            console.log("exporting to text editor");
-                            // TODO:
+                            dispatch(updateNews(news));
                         }}
                     >
                         Export to text editor

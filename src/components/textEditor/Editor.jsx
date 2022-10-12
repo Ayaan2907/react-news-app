@@ -17,16 +17,29 @@ import InsertTextPlugin from "./plugins/InsertTextPlugin";
 import editorConfig from "./EditorConfig";
 import { Text } from "@mantine/core";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 
 const Placeholder = () => {
     return <Text className="editor-placeholder">Enter some rich text...</Text>;
 };
 
 export default function Editor() {
-    const [value, setValue] = useState("");
-    // const [editor, setEditor] = useState(null);
+    const newsItem = useSelector((state) => state.news);
+    const [newsToDisplay, setNewsToDisplay] = useState({
+        title: newsItem.title,
+        description: newsItem.description,
+        content: newsItem.content,
+        author: newsItem.author,
+    });
+    useEffect(() => {
+        setNewsToDisplay({
+            title: newsItem.title,
+            description: newsItem.description,
+            content: newsItem.content,
+        });
+    }, [newsItem]);
 
-    // TODO: add a way to dispatch the addText command to insert the news text into editor
     return (
         <LexicalComposer initialConfig={editorConfig}>
             <div className="editor-container">
@@ -44,7 +57,7 @@ export default function Editor() {
                     <ListPlugin />
                     <LinkPlugin />
                     <AutoLinkPlugin />
-                    <InsertTextPlugin text={"dkjfndkjsfsdn"} />
+                    <InsertTextPlugin news={ newsToDisplay } />
                     <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
                 </div>
             </div>
